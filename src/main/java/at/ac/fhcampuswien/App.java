@@ -7,41 +7,30 @@ import java.util.Arrays;
 public class App {
 
     public static void oneMonthCalendar(int numberofdays, int firstday) {
-        int week = 0;
-        int days = 0;
+        int test = 0;
 
-        for (int j = 1; j <= 7; j++) {
-            if (j == firstday) {
-                for (int i = 1; i <= numberofdays; i++) {
-                    if (i <= 9) {
-                        System.out.print(" " + i + " ");
-                    } else {
-                        System.out.print(i +" ");
-                    }
-                    week++;
+        for (int j = 1; j <= numberofdays; j++) {
 
-                    if (week % 7 == 0) {
-                        if (days <= 4) {
-                            System.out.println("");  // ln bc would be a line
-                        }
-                        days++;
-                    }
+            if (test == 0) {
+                for (int i = 0; i < firstday - 1; i++) {
+                    System.out.print("   ");
+                    test++;
                 }
-
-            } else if (week < firstday) {
-                System.out.print("   ");
-                week++;
-            }
-            if (numberofdays <= 2) {
-                System.out.print("");
             }
 
-            if (week % 7 != 0) {
-                System.out.println("");  // give an empfty line if there is 0
+            if (j <= 9) {
+                System.out.print(" " + j + " ");
+            } else {
+                System.out.print(j + " ");
+            }
+            test++;
+
+            if (test % 7 == 0 && j != numberofdays) {
+                System.out.println();
             }
         }
+        System.out.println();
     }
-
 
     public static long[] lcg (long seed) {
         long[] randNumber = new long[10];
@@ -60,7 +49,6 @@ public class App {
         }
         System.out.println(Arrays.toString(randNumber));
         return randNumber;  //return ends function and return value to function caller
-
     }
 
     public static void guessingGame(int numberToGuess) {
@@ -123,7 +111,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        //oneMonthCalendar(28,1);
+        oneMonthCalendar(28,1);
 
         //lcg(8);
 
